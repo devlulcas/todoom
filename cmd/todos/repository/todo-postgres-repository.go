@@ -8,7 +8,7 @@ import (
 	"github.com/devlulcas/todoom/db"
 )
 
-const todoTableName = "todos"
+const todoTableName = "todo"
 
 type postgresTodoRepository struct {
 	Conn *sql.DB
