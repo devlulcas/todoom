@@ -3,16 +3,17 @@ version: '3.9'
 services:
   db_api_todo:
     container_name: db_api_todo
-    image: postgres:15-alpine
+    image: postgres
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: db_api_todo
     ports:
-      - 5432:5432
+      - '5432:5432'
     volumes:
-      - ./db_api_todo:/var/lib/postgresql/data
+      - pg-data:/var/lib/postgresql/data
+
   app_api_todo:
     container_name: app_api_todo
     build: .
@@ -23,4 +24,4 @@ services:
       - db_api_todo
 
 volumes:
-  db_api_todo:
+  pg-data:
